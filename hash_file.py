@@ -1,4 +1,5 @@
 import hashlib
+import sys
 
 def hash_file(FILE_NAME, algo):
     '''
@@ -37,3 +38,11 @@ def hash_file(FILE_NAME, algo):
             fileHash.update(buf)
             buf = afile.read(blockSize)
     return fileHash
+
+
+if __name__ == '__main__':
+    fileName = sys.argv[1]
+    hashAlgo = sys.argv[2]
+    print hash_file(fileName, hashAlgo).hexdigest()
+
+    

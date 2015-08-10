@@ -1,10 +1,17 @@
 import hashlib
 import sys
 
+'''
+To run this program type the following in a command prompt or shell console:
+
+python PATH/hash_file.py 'PATH/target_file' 'hashing_algorithm'
+'''
+
 def hash_file(FILE_NAME, algo):
     '''
     Description:  This function will hash a file and return the hash object.
     The hash algorithm can be modified by changing the hashlib algorithm.
+    This function should be able to hash objects of indefinite size.  
 
     References:
     https://docs.python.org/2/library/hashlib.html

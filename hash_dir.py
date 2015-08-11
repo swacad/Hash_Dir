@@ -44,6 +44,15 @@ def get_filepaths(dirPath):
     return file_paths
 
 if __name__ == '__main__':
+    '''
+    This will allow for execution from the command line using two arguments.
+    args should follow hash_dir.py preceded with a space.
+    arg1 is the path to the directory as a strings
+    arg2 is the hashing algorithm to be used
+
+    The text file containing the file paths and associated hash values will
+    written to the directory in which hash_file.py is executed from.
+    '''
     dirPath = sys.argv[1]
     hashAlgo = sys.argv[2]
     hashDict = hash_dir(dirPath, hashAlgo)

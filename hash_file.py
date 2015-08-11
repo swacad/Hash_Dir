@@ -20,7 +20,7 @@ def hash_file(FILE_NAME, algo):
     input args:
     FILE_NAME is the path and name of the file to be hashed in string format.
 
-    algo is the hashing algorithm in string format.  Allows algorithms are:
+    algo is the hashing algorithm in string format.  Allowed algorithms are:
     'md5', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512'
 
     output:

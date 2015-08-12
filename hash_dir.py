@@ -57,7 +57,9 @@ if __name__ == '__main__':
     hashAlgo = sys.argv[2]
     hashDict = hash_dir(dirPath, hashAlgo)
     f = open('hashDict.txt', 'a')
-    f.write('FILE PATH - Hashing Algorithm: ' + hashAlgo + '\n\n')
+    f.write('FILE_PATH - Hashing Algorithm: ' + hashAlgo + '\n')
+    f.write('File exceptions indicated by hash value of: 6150626741db26913278948d5d32b779500a6eb03907732d9c28a1f74e86cfc02844d172eb22c0e1fb16230ef7084e0b24a7d27b639c1759c5ed10aec6cb1d5a\n')
+    f.write('###########################################################################\n')
     for key in hashDict:
         f.write(key + ' - ' + hashDict[key] + '\n')
     f.close()

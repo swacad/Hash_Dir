@@ -39,12 +39,16 @@ def hash_file(FILE_NAME, algo):
         fileHash = hashlib.sha384()
     elif algo == 'sha512':
         fileHash = hashlib.sha512()
-    with open(FILE_NAME, 'rb') as afile:
-        buf = afile.read(blockSize)
-        while len(buf) > 0:
-            fileHash.update(buf)
+    try:
+        with open(FILE_NAME, 'rb') as afile:
             buf = afile.read(blockSize)
-    return fileHash
+            while len(buf) > 0:
+                fileHash.update(buf)
+                buf = afile.read(blockSize)
+        return fileHash
+    except IOError:
+        return hashlib.sha512('bad_hash')
+
 
 
 if __name__ == '__main__':

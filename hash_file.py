@@ -40,11 +40,12 @@ def hash_file(FILE_NAME, algo):
     elif algo == 'sha512':
         fileHash = hashlib.sha512()
     try:
-        with open(FILE_NAME, 'rb') as afile:
-            buf = afile.read(blockSize)
+        with open(FILE_NAME, 'rb') as f:
+            buf = f.read(blockSize)
             while len(buf) > 0:
                 fileHash.update(buf)
-                buf = afile.read(blockSize)
+                buf = f.read(blockSize)
+        f.close()
         return fileHash
     except IOError:
         return hashlib.sha512('bad_hash')

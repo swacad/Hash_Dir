@@ -1,5 +1,6 @@
 import sys
 import datetime
+import socket
 from os import listdir, walk
 from os.path import isfile, join
 from hash_file import hash_file
@@ -54,14 +55,21 @@ if __name__ == '__main__':
     The text file containing the file paths and associated hash values will
     written to the directory in which hash_file.py is executed from.
     '''
+    # Command line arguments
     dirPath = sys.argv[1]
     hashAlgo = sys.argv[2]
+
     hashDict = hash_dir(dirPath, hashAlgo)
+
+    # Generate file name
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d_%H%M.%Ss")
-    fileName = 'hashDict_' + timestamp + ".txt"
+    hostname = socket.gethostname()
+    fileName = 'hashDict_' + hostname +  '_' + timestamp + ".txt"
+
     f = open(fileName, 'a')
     f.write('FILE_PATH - Hashing Algorithm: ' + hashAlgo + '\n')
+    f.write('System Hostname: ' + hostname + '\n')
     f.write('Timestamp: ' + str(now) + '\n')
     f.write('File exceptions indicated by hash value of: 6150626741db26913278948d5d32b779500a6eb03907732d9c28a1f74e86cfc02844d172eb22c0e1fb16230ef7084e0b24a7d27b639c1759c5ed10aec6cb1d5a\n')
     f.write('###########################################################################\n')

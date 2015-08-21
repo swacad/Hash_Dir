@@ -39,3 +39,6 @@ The text file outputs will be proportionate to the number of files hashed.  This
 # Known Issues
 Some files cannot be read because they protected.  This can occur even when running with administrator credentials.  These files will have a "bad hash" value of 6150626741db26913278948d5d32b779500a6eb03907732d9c28a1f74e86cfc02844d172eb22c0e1fb16230ef7084e0b24a7d27b639c1759c5ed10aec6cb1d5a.
 
+# To Do
+1.  Clean up execution portion of code by modularizing the code.
+2.  Add the ability to compare a list of hashes from a text file and output all matching or non-matching files and hashes to another text file.

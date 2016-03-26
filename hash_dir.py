@@ -6,11 +6,11 @@ from os.path import join
 from hash_file import hash_file, get_bad_hash
 
 
-def hash_dir(dir_path, algo, max_file_size):
-    '''
+def hash_dir(dir_path, algo, max_file_size, display_current_file=False):
+    """
     Description:  hash_dir creates a dictionary of hashes where the key is the
     full file path and the value is the associated hash object which is created
-    by calling hash_file.  All files in the directory and subdirectories are 
+    by calling hash_file.  All files in the directory and subdirectories are
     operated upon.
 
     input args:
@@ -20,11 +20,13 @@ def hash_dir(dir_path, algo, max_file_size):
 
     output:
     hash_dict is the dictionary containing the file:hash pairs.
-    '''
+    """
     hash_dict = {}
     file_list = get_file_paths(dir_path)
     for f in file_list:
         if stat(f).st_size <= max_file_size:
+            if display_current_file:
+                print(f)
             hash_dict[f] = hash_file(f, algo).hexdigest()
 
     return hash_dict
@@ -64,11 +66,16 @@ def main():
     dir_path = sys.argv[1]
     hash_algo = sys.argv[2]
     max_file_size = sys.argv[3]
+    display_current_file = sys.argv[4] # should be True or False
+    if display_current_file.lower() == 'true':
+        display_current_file = True
+    else:
+        display_current_file = False
 
     max_file_size = int(max_file_size)
     max_file_size *= 2**(10*2)
 
-    hash_dict = hash_dir(dir_path, hash_algo, max_file_size)
+    hash_dict = hash_dir(dir_path, hash_algo, max_file_size, display_current_file)
 
     # Generate file name
     now = datetime.datetime.now()

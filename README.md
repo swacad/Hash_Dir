@@ -21,24 +21,21 @@ ALGORITHM is the the hashing algorithm to be used and must be one of the followi
 'sha512'
 
 EXAMPLES:
-python hash_dir.py / md5
-(This will hash the entire contents of the root directory using MD5)
+python hash_dir.py / md5 1
+(Hash all files less 1MB or less in the root directory using MD5)
 
-python hash_dir.py c:\ sha256
-(This will hash the entire contents of the C drive)
+python hash_dir.py c:\ sha256 100 True
+(Hash all files less 100MB or less in the root directory using SHA256 and output hashed files to console)
 
-python hash_dir.py "c:\program files" sha1
-(This will hash the entire contents of the C:\Windows\System32\ directory using SHA1)
+python hash_dir.py "c:\program files" sha1 1000
+(Hash all files less 1000MB or less in the root directory using SHA1)
 ```
 
 # Performance
 Hashing small directories will be nearly instantaneous.  Hashing large directories such as the C:\Windows\System32\ will probably take between 10-20 seconds depending on how fast your machine is.  Hashing entire root directories can take 20 minutes or longer.
 
-The text file outputs will be proportionate to the number of files hashed.  This is not a problem for small directories but hashing large directories will create large text files.  Make sure you have enough space for your files.
+The csv file outputs will be proportionate to the number of files hashed.  This is not a problem for small directories but hashing large directories will create large csv files.  Make sure you have enough space for your files.
 
 # Known Issues
-Some files cannot be read because they protected.  This can occur even when running with administrator credentials.  These files will have a "bad hash" value of 6150626741db26913278948d5d32b779500a6eb03907732d9c28a1f74e86cfc02844d172eb22c0e1fb16230ef7084e0b24a7d27b639c1759c5ed10aec6cb1d5a.
+Some files cannot be read because they protected.  This can occur even when running with administrator credentials.  These files will have a "bad hash" value of the string "bad_hash" hashed with the chosen algorithm.
 
-# To Do
-1.  Clean up execution portion of code by modularizing the code.
-2.  Add the ability to compare a list of hashes from a text file and output all matching or non-matching files and hashes to another text file.

@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e321a8-67db-4b86-a8c8-9f049fe82b6c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hash_diff.py" afterPath="$PROJECT_DIR$/hash_diff.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hash_dir.py" afterPath="$PROJECT_DIR$/hash_dir.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hash_file.py" afterPath="$PROJECT_DIR$/hash_file.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/Hash_Dir.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="Hash_Dir.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,9 +81,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hash_file.py" />
         <option value="$PROJECT_DIR$/hash_dir.py" />
         <option value="$PROJECT_DIR$/hash_diff.py" />
+        <option value="$PROJECT_DIR$/hash_file.py" />
       </list>
     </option>
   </component>

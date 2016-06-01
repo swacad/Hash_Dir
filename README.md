@@ -33,6 +33,8 @@ python hash_dir.py c:\ sha256 100 True
 
 python hash_dir.py "c:\program files" sha1 1000
 (Hash all files less 1000MB or less in the root directory using SHA1)
+
+python hash_diff.py <CSV_FILE1> <CSV_FILE2>
 ```
 
 # Performance

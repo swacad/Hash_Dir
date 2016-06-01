@@ -9,6 +9,7 @@ def main():
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d_%H%M.%Ss")
     report_name = 'hash_diff_report_' + timestamp + '.txt'
+    f = open(report_name, 'a')
 
     csv1_list = []
     csv2_list = []
@@ -19,13 +20,19 @@ def main():
 
     with open(csv1, newline='') as csvfile:
         hash_reader = csv.reader(csvfile, delimiter=',')
+        row_idx = 0
         for row in hash_reader:
-            csv1_list.append(row)
+            if row_idx > 1:
+                csv1_list.append(row)
+            row_idx += 1
 
     with open(csv2, newline='') as csvfile:
         hash_reader = csv.reader(csvfile, delimiter=',')
+        row_idx = 0
         for row in hash_reader:
-            csv2_list.append(row)
+            if row_idx > 1:
+                csv2_list.append(row)
+            row_idx += 1
 
     csv2_dict = dict(csv2_list)
 
@@ -45,25 +52,38 @@ def main():
     for file_path in csv2_dict:
         new.append(file_path)
 
-    print('DELETED FILE BELOW:')
+    print('DELETED FILES BELOW:')
+    f.write('DELETED FILES BELOW:' + '\n')
     for file_path in deleted:
         print(file_path)
+        f.write(file_path + '\n')
     print('\n')
+    f.write('\n')
 
     print('CHANGED FILES BELOW:')
+    f.write('CHANGED FILES BELOW:' + '\n')
     for file_path in changed:
+        f.write(file_path + '\n')
         print(file_path)
     print('\n')
+    f.write('\n')
 
     print('NEW FILES BELOW:')
+    f.write('NEW FILES BELOW:' + '\n')
     for file_path in new:
+        f.write(file_path + '\n')
         print(file_path)
     print('\n')
+    f.write('\n')
 
     print('UNCHANGED FILES BELOW:')
+    f.write('UNCHANGED FILES BELOW:' + '\n')
     for file_path in unchanged:
+        f.write(file_path + '\n')
         print(file_path)
     print('\n')
+    f.write('\n')
 
 if __name__ == '__main__':
     main()
+

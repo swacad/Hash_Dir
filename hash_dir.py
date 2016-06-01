@@ -6,20 +6,20 @@ from os.path import join
 from hash_file import hash_file, get_bad_hash
 
 
-def hash_dir(dir_path, algo, max_file_size, display_current_file=False):
+def hash_dir(dir_path, algo, max_file_size=100, display_current_file=False):
     """
     Description:  hash_dir creates a dictionary of hashes where the key is the
     full file path and the value is the associated hash object which is created
     by calling hash_file.  All files in the directory and subdirectories are
     operated upon.
 
-    input args:
-    dir_path is the path to the directory in which to hash files
-    algo is the type of hashing algorithm to be used.  Allowed algorithms are:
-    'md5', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512'
-
-    output:
-    hash_dict is the dictionary containing the file:hash pairs.
+    :param dir_path: str path to directory in which to recursively hash files
+    :param algo: str of hashing algorithm to be used.
+        Allowed values are 'md5', 'sha1', 'sha224', 'sha256', 'sha384', 'sha512'
+    :param max_file_size: Maximum file size in MB.
+    :param display_current_file: Display current file to screen switch
+    :return:
+    :param hash_dict: dictionary containing file:hash pairs
     """
     hash_dict = {}
     file_list = get_file_paths(dir_path)
@@ -49,6 +49,9 @@ def get_file_paths(dir_path):
             # Join the two strings in order to form the full file_path.
             file_path = join(root, filename)
             file_paths.append(file_path)  # Add it to the list.
+
+            # Comment out if you don't want to print file_path to screen during list build
+            # print(file_path)
     return file_paths
 
 
@@ -81,7 +84,7 @@ def main():
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y-%m-%d_%H%M.%Ss")
     hostname = socket.gethostname()
-    file_name = 'hashes_'+ hash_algo + '_' + hostname + '_' + timestamp + '.csv'
+    file_name = 'hashes_' + hash_algo + '_' + hostname + '_' + timestamp + '.csv'
     bad_hash = get_bad_hash(hash_algo).hexdigest()
 
     f = open(file_name, 'a')

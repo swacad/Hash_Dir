@@ -72,4 +72,4 @@ def hash_file(file_name, algo):
 if __name__ == '__main__':
     file_name = sys.argv[1]
     hash_algo = sys.argv[2]
-    # print(hash_file(file_name, hash_algo).hexdigest())
+    print(hash_file(file_name, hash_algo).hexdigest())

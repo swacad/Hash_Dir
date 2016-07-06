@@ -6,7 +6,7 @@ This repository holds my hash_dir project.  There are currently three python pro
 2. hash_dir imports the hash_file function from hash_file and recursively hashes all of the files in a directory to include hidden files and files in its subdirectories.  The results and printed to a csv file which will include a timestamp and the hostname the program was run on as part of the file name.  The csv file will be saved to the same directory where hash_dir.py is run from.
 3. hash_diff will take two csv files generated from the hash_dir program and output a diff report as a text file.  The diff file will report which files are new, modified, deleted, and unchanged.
 
-This repositor contains a standalone executable version of both hash_dir and hash_file for Microsoft Windows.  You can use the executable to run the program without installing Python on the host machine.
+This repository contains a standalone executable version of both hash_dir and hash_file for Microsoft Windows.  You can use the executable to run the program without installing Python on the host machine.
 
 # Usage
 To run directly from command line use the following format:

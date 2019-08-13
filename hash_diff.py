@@ -2,6 +2,7 @@ import csv
 import datetime
 import sys
 
+
 def main():
     csv1 = sys.argv[1]
     csv2 = sys.argv[2]
@@ -18,7 +19,7 @@ def main():
     changed = []
     unchanged = []
 
-    with open(csv1, newline='') as csvfile:
+    with open(csv1) as csvfile:
         hash_reader = csv.reader(csvfile, delimiter=',')
         row_idx = 0
         for row in hash_reader:
@@ -26,7 +27,7 @@ def main():
                 csv1_list.append(row)
             row_idx += 1
 
-    with open(csv2, newline='') as csvfile:
+    with open(csv2) as csvfile:
         hash_reader = csv.reader(csvfile, delimiter=',')
         row_idx = 0
         for row in hash_reader:
@@ -83,6 +84,7 @@ def main():
         print(file_path)
     print('\n')
     f.write('\n')
+
 
 if __name__ == '__main__':
     main()

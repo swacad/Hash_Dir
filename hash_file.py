@@ -9,6 +9,7 @@ python PATH/hash_file.py 'PATH/target_file' 'hashing_algorithm'
 
 
 def get_bad_hash(algo):
+    bad_hash = 'bad_hash'
     if algo == 'md5':
         bad_hash = hashlib.md5(b'bad_hash')
     elif algo == 'sha1':
@@ -44,6 +45,8 @@ def hash_file(file_name, algo):
     output:
     hasher is the HASH object created by the hashlib function
     """
+
+    file_hash = None
     block_size = 2 ** 16
     if algo == 'md5':
         file_hash = hashlib.md5()
@@ -59,10 +62,10 @@ def hash_file(file_name, algo):
         file_hash = hashlib.sha512()
     try:
         with open(file_name, 'rb') as f:
-            buffer = f.read(block_size)
-            while len(buffer) > 0:
-                file_hash.update(buffer)
-                buffer = f.read(block_size)
+            _buffer = f.read(block_size)
+            while len(_buffer) > 0:
+                file_hash.update(_buffer)
+                _buffer = f.read(block_size)
         f.close()
         return file_hash
     except IOError:
